@@ -9,7 +9,7 @@ This repository contains a **Scalable Airdrop System** for the TON blockchain, d
 
 ## Getting Started
 
-1. **Clone the Repository**:
+1. **Clone the Repository.**:
    ```bash
    git clone https://github.com/cumberlandlabs/hubz_airdrop.git
    cd hubz_airdrop

@@ -1,4 +1,41 @@
-# Scalable Airdrop System
+# Hubz Airdrop System
+
+This repository is a fork of [Gusarich airdrop](https://github.com/Gusarich/airdrop), designed to address the need for a straightforward and scalable airdrop system tailored for Hubz admins. It integrates functionality within the mini-application, allowing admins to schedule or execute airdrops directly from the user interface.
+
+The system offers multiple airdrop options, such as:  
+(a) All current members of their Telegram group  
+(b) Users who joined within a specified timeframe  
+(c) OG members of the group  
+(d) Raffle-based selection  
+and more features are in development.
+
+## Getting Started
+
+### Clone the Repository
+```bash
+git clone https://github.com/cumberlandlabs/hubz_airdrop.git
+cd hubz_airdrop
+```
+
+### Install Dependencies
+Use npm to install the required dependencies:
+```bash
+npm install
+```
+
+### Build the contract
+```bash
+npm run build
+```
+
+### Test the contract
+```bash
+npm run test
+```
+
+# From the fork
+
+## Scalable Airdrop System
 
 This repository contains an implementation of a Scalable Airdrop System for the TON blockchain. It can be used to distribute Jettons on-chain to any number of wallets.
 

@@ -1,11 +1,14 @@
 # Hubz Scalable Airdrop System
 
-This repository contains a **Scalable Airdrop System** for the TON blockchain, designed exclusively for **Hubz**. It enables efficient token distribution (Jettons) to users, allowing them to claim tokens seamlessly.
+This repository contains a **Scalable Airdrop System** for the TON blockchain, designed exclusively for **Hubz**. It enables efficient token distribution (Jettons) to users, allowing them to claim tokens seamlessly, with integrated Hubz branding.
 
 ## Features
 
 - **Efficient Token Distribution**: Utilizes a Merkle tree for scalability and cost-efficiency.
 - **User-Friendly Claims**: Simplified claiming process for end-users.
+- **Hubz Branding**: Tailored with Hubz-specific branding elements.
+- **Hubz Mini App Integration**: Deploy and claim contracts directly through the Hubz Mini App.
+- **Airdrop Scheduling**: Schedule airdrop events for timely distribution.
 
 ## Getting Started
 

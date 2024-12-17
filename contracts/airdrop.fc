@@ -5,6 +5,7 @@
 global slice data::jetton_wallet;
 global int data::merkle_root;
 global cell data::helper_code;
+global slice data::admin;
 
 global int context::op;
 global slice context::sender;
@@ -15,6 +16,7 @@ global int context::query_id;
     data::jetton_wallet = ds~load_msg_addr();
     data::merkle_root = ds~load_uint(256);
     data::helper_code = ds~load_ref();
+    data::admin = ds~load_msg_addr();
 }
 
 () save_data() impure inline {
@@ -22,6 +24,7 @@ global int context::query_id;
         .store_slice(data::jetton_wallet)
         .store_uint(data::merkle_root, 256)
         .store_ref(data::helper_code)
+        .store_slice(data::admin)
     .end_cell());
 }
 
@@ -78,8 +81,21 @@ global int context::query_id;
     load_data();
 
     if (context::op == op::deploy) {
+        ;; if admin is not set
+        if (data::admin.preload_uint(2) == 0) {
+            data::admin = context::sender;
+        }
+        ;; Verify only admin can call deploy
+        throw_unless(error::unauthorized, equal_slices(context::sender, data::admin));
+
         throw_unless(error::already_deployed, data::jetton_wallet.preload_uint(2) == 0);
         data::jetton_wallet = in_msg_body~load_msg_addr();
+
+        ;; Verify the address is not null or zero address
+        if (data::jetton_wallet.slice_empty?()) {
+            throw(error::invalid_address);
+        }
+        force_chain(data::jetton_wallet);
         save_data();
     }
 
